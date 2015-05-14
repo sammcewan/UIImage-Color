@@ -1,7 +1,7 @@
 //
 //  UIImage+Color.m
 //
-//  Created by Sam McEwan sammcewan@me.com on 15/10/12.
+//  Created by Sam McEwan me@sammcewan.co.nz on 15/10/12.
 //
 //
 
@@ -9,8 +9,7 @@
 
 @implementation UIImage (Color)
 
-- (UIImage*)changeColor:(UIColor*)color
-{
+- (UIImage*)cl_changeColor:(UIColor*)color {
     UIGraphicsBeginImageContextWithOptions(self.size, YES, [[UIScreen mainScreen] scale]);
     
     CGRect contextRect;
@@ -33,15 +32,15 @@
     CGContextBeginTransparencyLayer(c, NULL);
     CGContextScaleCTM(c, 1.0, -1.0);
     CGContextClipToMask(c, CGRectMake(itemImagePosition.x, -itemImagePosition.y, itemImageSize.width, -itemImageSize.height), [self CGImage]);
+    
     // Fill and end the transparency layer
     CGColorSpaceRef colorSpace = CGColorGetColorSpace(color.CGColor);
     CGColorSpaceModel model = CGColorSpaceGetModel(colorSpace);
     const CGFloat* colors = CGColorGetComponents(color.CGColor);
     
-    if(model == kCGColorSpaceModelMonochrome)
-    {
+    if(model == kCGColorSpaceModelMonochrome) {
         CGContextSetRGBFillColor(c, colors[0], colors[0], colors[0], colors[1]);
-    }else{
+    } else {
         CGContextSetRGBFillColor(c, colors[0], colors[1], colors[2], colors[3]);
     }
     contextRect.size.height = -contextRect.size.height;
