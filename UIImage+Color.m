@@ -32,7 +32,7 @@
     CGContextBeginTransparencyLayer(c, NULL);
     CGContextScaleCTM(c, 1.0, -1.0);
     CGContextClipToMask(c, CGRectMake(itemImagePosition.x, -itemImagePosition.y, itemImageSize.width, -itemImageSize.height), [self CGImage]);
-    
+
     // Fill and end the transparency layer
     CGColorSpaceRef colorSpace = CGColorGetColorSpace(color.CGColor);
     CGColorSpaceModel model = CGColorSpaceGetModel(colorSpace);
@@ -51,6 +51,20 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
+}
+
++ (UIImage *)cl_imageWithColor:(UIColor *)color {
+  CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+  UIGraphicsBeginImageContext(rect.size);
+  CGContextRef context = UIGraphicsGetCurrentContext();
+
+  CGContextSetFillColorWithColor(context, [color CGColor]);
+  CGContextFillRect(context, rect);
+
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+
+  return image;
 }
 
 @end
