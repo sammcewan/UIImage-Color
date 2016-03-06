@@ -50,6 +50,7 @@
     
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    UIGraphicsEndImageContext();
     return img;
 }
 
