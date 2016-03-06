@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'UIImage-Color'
-  s.version      = '1.1.0'
+  s.version      = '1.1.1'
   s.summary      = 'A category adding methods to UIImage allowing it to be colorized and the ability to create an image from a color.'
   s.description  = <<-DESC
                     Colorizes UIImage accounting for scale and transparancy. Useful for changing the color of glyph assets.
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Sam McEwan' => 'me@sammcewan.co.nz' }
 
-  s.source       = { :git => 'https://github.com/sammcewan/UIImage-Color.git', :tag => '1.1.0' }
+  s.source       = { :git => 'https://github.com/sammcewan/UIImage-Color.git', :tag => '1.1.1' }
 
   s.source_files = '*.{h,m}'
   s.requires_arc = true
